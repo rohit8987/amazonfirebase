@@ -9,6 +9,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useSelector, } from 'react-redux';
 import HeaderBottom from '../HeaderBottom';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 
@@ -86,12 +87,14 @@ const Header = () => {
                         </div>
                     </div>
                     {/* Account Section */}
+                    <Link to="/signin">
                     <div className="flex flex-col items-start justify-center headerHover h-[40px]">
                         <p className="text-xs text-lightText font-light flex">Hello, sign in</p>
                         <p className="font-bold text-sm -mt-1 text-whiteText  hidden mdl:inline-flex">
                             Accounts & Lists <ArrowDropDownOutlinedIcon className='text-lightText'/>
                         </p>
                     </div>
+                    </Link>
                     {/* Returns & Orders Section */}
                     <div className="h-10 hidden lgl:inline-flex  flex-col items-start justify-center headerHover">
                         <p className="text-xs text-gray-300 font-light flex">Returns</p>

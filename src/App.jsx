@@ -6,6 +6,7 @@ import Home from "./components/home/Home"
 import { } from "react-router"
 import ProductItems from "./components/home/ProductItems"
 import Cart from "./components/Cart"
+import Signin from "./pages/Signin"
 
 const Layout =()=>{
   return(
@@ -20,9 +21,10 @@ const App = () => {
  const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout/>}>
-      <Route index element={<Home/>}/>
-      <Route path="/productItems" element={<ProductItems />} />
+      <Route index element={<Home/>}/> 
+      <Route path="/productItems" element={< ProductItems/>} />
       <Route path="/cart" element = {<Cart/>}/>
+      <Route path="/signin" element={<Signin/>}/>
     </Route>
   )
  )
