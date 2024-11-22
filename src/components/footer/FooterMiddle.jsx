@@ -7,7 +7,7 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 const FooterMiddle = () => {
     return (
         <div className="w-full bg-amazon_light text-white">
-            <div className="w-full border-b-[1px] border-gray-500 py-10">
+            <div className="w-full border-b-[1px] border-gray-500 py-10 mt-5">
                 <div className="max-w-5xl  mx-auto text-gray-300 flex justify-between">
                     <div className="">
                         <h3 className="text-white font-titleFont text-base font-semibold mb-2 ">Get to Know Us</h3>

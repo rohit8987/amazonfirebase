@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <div>
     <Banner/>
+    <div className="w-full ">
     <Product/>
+    </div>
     </div>
   )
 }

@@ -6,11 +6,20 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { allItems } from '../../constants/Index';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-
+import { useSelector, } from 'react-redux';
 import HeaderBottom from '../HeaderBottom';
+import { useNavigate } from 'react-router';
+
+
 
 const Header = () => {
+// const cartItems = useSelector ((state)=> state.cart.items)
+
     const [showAll, setShowAll] = useState(false);
+
+    const navigate = useNavigate(); 
+    const handleNavigation = (path) => {
+      navigate(path);}
 
     return (
         <div className="w-full">
@@ -19,12 +28,12 @@ const Header = () => {
                 {/* Top Header Section */}
                 <div className="px-4 py-3 flex items-center gap-4 h-16 shadow-md">
                     {/* Logo Section */}
-                    <div className="ml-5 headerHover justify-center items-center flex h-[40px]">
+                    <div  onClick={() => handleNavigation('/')} className="ml-5 headerHover justify-center items-center flex h-[40px]">
                         <img className="max-w-[80px] mt-3 justify-center items-center flex" src={logo} alt="logo" />
                         <span className="flex">.in</span>
                     </div>
                     {/* Location Section */}
-                    <div className="headerHover h-[40px]">
+                    <div onClick={()=> handleNavigation("/https://www.google.com/maps")} className="headerHover h-[40px] lgl:inline-flex">
                         <LocationOnOutlinedIcon />
                         <p className="text-sm text-lightText font-light flex flex-col">
                             Deliver to Visakhapatnam 530016
@@ -71,27 +80,27 @@ const Header = () => {
                     </div>
                     {/* Language Section */}
                     <div className="h-10 flex justify-center items-center gap-1 headerHover">
-                        <img src={flag} alt="" className="size-3 w-4 flex" />
+                        <img src={flag} alt="" className="size-3 w-4 mb-1 flex" />
                         <div className="flex">
-                            EN <ArrowDropDownOutlinedIcon />
+                            EN <ArrowDropDownOutlinedIcon className='text-lightText mt-1' />
                         </div>
                     </div>
                     {/* Account Section */}
                     <div className="flex flex-col items-start justify-center headerHover h-[40px]">
                         <p className="text-xs text-lightText font-light flex">Hello, sign in</p>
-                        <p className="font-bold text-sm -mt-1 text-whiteText flex">
-                            Accounts & Lists <ArrowDropDownOutlinedIcon />
+                        <p className="font-bold text-sm -mt-1 text-whiteText  hidden mdl:inline-flex">
+                            Accounts & Lists <ArrowDropDownOutlinedIcon className='text-lightText'/>
                         </p>
                     </div>
                     {/* Returns & Orders Section */}
-                    <div className="h-10 flex flex-col items-start justify-center headerHover">
+                    <div className="h-10 hidden lgl:inline-flex  flex-col items-start justify-center headerHover">
                         <p className="text-xs text-gray-300 font-light flex">Returns</p>
                         <p className="font-bold text-sm -mt-1 text-whiteText flex">
                             & <span>Orders</span>
                         </p>
                     </div>
                     {/* Cart Section */}
-                    <div className="h-10 flex items-center justify-center headerHover relative">
+                    <div onClick={()=> handleNavigation('./cart')} className="h-10 flex items-center justify-center headerHover relative">
                         <ShoppingCartOutlinedIcon />
                         <p className="font-bold text-xs mt-3 text-whiteText">
                             Cart

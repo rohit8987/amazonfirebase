@@ -18,8 +18,8 @@ const Banner = () => {
         
     };
     return (
-        <div className="w-full ">
-            <div className=" w-full h-full relative">
+        <div className="w-full bg-gray-100 ">
+            <div className="ml-[200px] w-[1500px]  relative">
                 <Slider {...settings}>
                     <div>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img24/Media/BAU/PC_Hero_2x-toys_1._CB582765723_.jpg" alt="bannerOne" />
