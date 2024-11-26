@@ -4,9 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import "slick-carousel/slick/slick.css";
 
+import { Provider } from 'react-redux';
+import store from './components/cartfunction/Store.js';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <Provider store={store}>
+      
+        <App />
+    
+    </Provider>
+  </StrictMode>
 )

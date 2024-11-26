@@ -38,7 +38,7 @@ const HeaderBottom = () => {
                     <div className="flex headerHover text-[13px] text-lightText font-semibold  ">MX Player</div>
                     <div className="flex headerHover text-[13px] text-lightText font-semibold ">Sell</div>
                     <div className="flex headerHover text-[13px] text-lightText font-semibold  ">Best Sellers</div>
-                    <div className="flex headerHover text-[13px] text-lightText font-semibold  ">Today's Deals</div>
+                    <div className="flex headerHover text-[13px] text-lightText font-semibold  ">Today`s Deals</div>
                     <div className="flex headerHover text-[13px] text-lightText font-semibold  ">Mobiles</div>
                     <div className="flex headerHover text-[13px] text-lightText font-semibold  ">Electronics</div>
                     <div className="flex headerHover text-[13px] text-lightText font-semibold ">Home & Kitchen</div>

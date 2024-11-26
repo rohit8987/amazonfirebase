@@ -3,11 +3,12 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements,Ou
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 import Home from "./components/home/Home"
-import { } from "react-router"
+
 import ProductItems from "./components/home/ProductItems"
-import Cart from "./components/Cart"
+import AddCart from "./components/AddCart"
 import Signin from "./pages/Signin"
 import Registration from "./pages/Registration"
+import Cart from "./components/Cart"
 
 const Layout =()=>{
   return(
@@ -25,7 +26,9 @@ const App = () => {
     <Route path="/" element={<Layout/>}>
       <Route index element={<Home/>} /> 
       <Route path="/productItems" element={< ProductItems/>} />
+      <Route path="/AddCart" element ={<AddCart/>}/>
       <Route path="/cart" element = {<Cart/>}/>
+     
     </Route>
       <Route path="/signin" element={<Signin/>}/>
       <Route path="/registration" element = {<Registration/>}/>
@@ -34,7 +37,9 @@ const App = () => {
  )
   return (
     <div className="font-bodyFont">
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router}>
+  
+      </RouterProvider>
     </div>
   )
 }

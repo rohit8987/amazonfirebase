@@ -6,21 +6,25 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { allItems } from '../../constants/Index';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { useSelector, } from 'react-redux';
 import HeaderBottom from '../HeaderBottom';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useSelector, } from 'react-redux';
 
 
 
 const Header = () => {
-// const cartItems = useSelector ((state)=> state.cart.items)
+    const cartItems = useSelector((state) => state.cart.items)
 
     const [showAll, setShowAll] = useState(false);
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const handleNavigation = (path) => {
-      navigate(path);}
+        navigate(path);
+    }
+
+    const cartAvl = localStorage.getItem('cart') && JSON.parse(localStorage.getItem('cart'))
+  
 
     return (
         <div className="w-full">
@@ -29,12 +33,12 @@ const Header = () => {
                 {/* Top Header Section */}
                 <div className="px-4 py-3 flex items-center gap-4 h-16 shadow-md">
                     {/* Logo Section */}
-                    <div  onClick={() => handleNavigation('/')} className="ml-5 headerHover justify-center items-center flex h-[40px]">
+                    <div onClick={() => handleNavigation('/')} className="ml-5 headerHover justify-center items-center flex h-[40px]">
                         <img className="max-w-[80px] mt-3 justify-center items-center flex" src={logo} alt="logo" />
                         <span className="flex">.in</span>
                     </div>
                     {/* Location Section */}
-                    <div onClick={()=> handleNavigation("/https://www.google.com/maps")} className="headerHover h-[40px] lgl:inline-flex">
+                    <div onClick={() => handleNavigation("/https://www.google.com/maps")} className="headerHover h-[40px] lgl:inline-flex">
                         <LocationOnOutlinedIcon />
                         <p className="text-sm text-lightText font-light flex flex-col">
                             Deliver to Visakhapatnam 530016
@@ -88,12 +92,12 @@ const Header = () => {
                     </div>
                     {/* Account Section */}
                     <Link to="/signin">
-                    <div className="flex flex-col items-start justify-center headerHover h-[40px]">
-                        <p className="text-xs text-lightText font-light flex">Hello, sign in</p>
-                        <p className="font-bold text-sm -mt-1 text-whiteText  hidden mdl:inline-flex">
-                            Accounts & Lists <ArrowDropDownOutlinedIcon className='text-lightText'/>
-                        </p>
-                    </div>
+                        <div className="flex flex-col items-start justify-center headerHover h-[40px]">
+                            <p className="text-xs text-lightText font-light flex">Hello, sign in</p>
+                            <p className="font-bold text-sm -mt-1 text-whiteText  hidden mdl:inline-flex">
+                                Accounts & Lists <ArrowDropDownOutlinedIcon className='text-lightText' />
+                            </p>
+                        </div>
                     </Link>
                     {/* Returns & Orders Section */}
                     <div className="h-10 hidden lgl:inline-flex  flex-col items-start justify-center headerHover">
@@ -103,13 +107,28 @@ const Header = () => {
                         </p>
                     </div>
                     {/* Cart Section */}
-                    <div onClick={()=> handleNavigation('./cart')} className="h-10 flex items-center justify-center headerHover relative">
+
+                    {/* <Link to={"/AddCart"} className="h-10 flex items-center justify-center headerHover relative">
                         <ShoppingCartOutlinedIcon />
                         <p className="font-bold text-xs mt-3 text-whiteText">
                             Cart
-                            <span className="absolute text-sm -top-1 left-8 p-2 font-bold text-[#f3a847]">0</span>
+                            <span className="absolute text-sm -top-1 left-8 p-2 font-bold text-[#f3a847]">{cartItems.length}</span>
+                        </p>
+                    </Link> */}
+
+                    <div
+                        onClick={() => handleNavigation(cartItems.length > 0 ? './AddCart' : './cart')}
+                        className="h-10 flex items-center justify-center headerHover relative"
+                    >
+                        <ShoppingCartOutlinedIcon />
+                        <p className="font-bold text-xs mt-3 text-whiteText">
+                            Cart
+                            <span className="absolute text-sm -top-1 left-8 p-2 font-bold text-[#f3a847]">
+                                {cartItems.length}
+                            </span>
                         </p>
                     </div>
+
                 </div>
                 {/* Header Bottom */}
                 <div className="bg-amazon_blue-light">
