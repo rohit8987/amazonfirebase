@@ -1,7 +1,11 @@
 
-
+import { useNavigate } from 'react-router';
 const Cart = () => {
    
+  const navigate = useNavigate(); // Create a navigate function
+
+    const handleNavigation = (path) => {
+      navigate(path);}
 
 
   return (
@@ -19,9 +23,9 @@ const Cart = () => {
             </p>
             <span className="text-green-800"> shop today`s deals</span>
             <div className="font-semibold mt-5 gap-5  flex">
-                <button className="border rounded-[20px] p-2 ml-auto px-3 py-2 -mb-1 bg-yellow-400 text-sm font-medium 
+                <button  onClick={() => handleNavigation('/signin')} className="border rounded-[20px] p-2 ml-auto px-3 py-2 -mb-1 bg-yellow-400 text-sm font-medium 
                         cursor-pointer hover:bg-yellow-500 active:bg-yellow-600">Sign in to your account</button>
-                <button className="border rounded-[20px] p-2 ml-auto px-3 py-2 -mb-1text-sm font-medium 
+                <button  onClick={() => handleNavigation('/registration')}  className="border rounded-[20px] p-2 ml-auto px-3 py-2 -mb-1text-sm font-medium 
                         cursor-pointer hover:bg-yellow-400 active:bg-yellow-600">Sign up now</button>
             </div>
         </div>
